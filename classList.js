@@ -1,6 +1,6 @@
 /*
  * classList.js: Implements a cross-browser element.classList getter.
- * 2010-11-22
+ * 2011-01-24
  *
  * By Eli Grey, http://eligrey.com
  * Public Domain.
@@ -64,7 +64,7 @@ var
 		for (var i = 0, len = classes.length; i < len; i++) {
 			this.push(classes[i]);
 		}
-		this._pushChanges = function () {
+		this._updateClassName = function () {
 			elem.className = this.toString();
 		};
 	}
