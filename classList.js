@@ -1,6 +1,6 @@
 /*
- * classList.js: Implements a cross-browser element.classList getter.
- * 2011-01-24
+ * classList.js: Cross-browser full element.classList implementation.
+ * 2011-02-22
  *
  * By Eli Grey, http://eligrey.com
  * Public Domain.
@@ -15,7 +15,7 @@
 
 "use strict";
 
-if (typeof Element !== "undefined" && !Element.prototype.hasOwnProperty("classList")) {
+if (typeof Element !== "undefined" && !("classList" in Element.prototype)) {
 
 (function () {
 
