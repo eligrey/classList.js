@@ -1,6 +1,6 @@
 /*
  * classList.js: Cross-browser full element.classList implementation.
- * 2011-02-22
+ * 2011-02-23
  *
  * By Eli Grey, http://eligrey.com
  * Public Domain.
@@ -9,20 +9,20 @@
 
 /*jslint laxbreak: true, eqeqeq: true, newcap: true, immed: true, strict: true,
   maxlen: 90 */
-/*global Element */
+/*global self */
 
 /*! @source http://purl.eligrey.com/github/classList.js/blob/master/classList.js*/
 
 "use strict";
 
-if (typeof Element !== "undefined" && !("classList" in Element.prototype)) {
+if (typeof document !== "undefined" && !("classList" in document.createElement("a"))) {
 
-(function () {
+(function (view) {
 
 var
 	  classListProp = "classList"
 	, protoProp = "prototype"
-	, elemCtrProto = Element[protoProp]
+	, elemCtrProto = (view.HTMLElement || view.Element)[protoProp]
 	, objCtr = Object
 	  strTrim = String[protoProp].trim || function () {
 		return this.replace(/^\s+|\s+$/g, "");
@@ -111,23 +111,23 @@ classListProto.toString = function () {
 };
 
 if (objCtr.defineProperty) {
-	var classListDescriptor = {
+	var classListPropDesc = {
 		  get: classListGetter
 		, enumerable: true
 		, configurable: true
 	};
 	try {
-		objCtr.defineProperty(elemCtrProto, classListProp, classListDescriptor);
+		objCtr.defineProperty(elemCtrProto, classListProp, classListPropDesc);
 	} catch (ex) { // IE 8 doesn't support enumerable:true
 		if (ex.number === -0x7FF5EC54) {
-			classListDescriptor.enumerable = false;
-			objCtr.defineProperty(elemCtrProto, classListProp, classListDescriptor);
+			classListPropDesc.enumerable = false;
+			objCtr.defineProperty(elemCtrProto, classListProp, classListPropDesc);
 		}
 	}
 } else if (objCtr[protoProp].__defineGetter__) {
 	elemCtrProto.__defineGetter__(classListProp, classListGetter);
 }
 
-}());
+}(self));
 
 }
