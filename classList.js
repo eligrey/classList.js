@@ -1,34 +1,37 @@
+
 /*
  * classList.js: Cross-browser full element.classList implementation.
- * 2011-02-23
+ * 2011-06-15
  *
  * By Eli Grey, http://eligrey.com
  * Public Domain.
  * NO WARRANTY EXPRESSED OR IMPLIED. USE AT YOUR OWN RISK.
  */
 
-/*jslint laxbreak: true, eqeqeq: true, newcap: true, immed: true, strict: true,
-  maxlen: 90 */
-/*global self */
+/*global self, document, DOMException */
 
 /*! @source http://purl.eligrey.com/github/classList.js/blob/master/classList.js*/
-
-"use strict";
 
 if (typeof document !== "undefined" && !("classList" in document.createElement("a"))) {
 
 (function (view) {
+
+"use strict";
 
 var
 	  classListProp = "classList"
 	, protoProp = "prototype"
 	, elemCtrProto = (view.HTMLElement || view.Element)[protoProp]
 	, objCtr = Object
-	  strTrim = String[protoProp].trim || function () {
+	, strTrim = String[protoProp].trim || function () {
 		return this.replace(/^\s+|\s+$/g, "");
 	}
 	, arrIndexOf = Array[protoProp].indexOf || function (item) {
-		for (var i = 0, len = this.length; i < len; i++) {
+		var
+			  i = 0
+			, len = this.length
+		;
+		for (; i < len; i++) {
 			if (i in this && this[i] === item) {
 				return i;
 			}
@@ -60,8 +63,10 @@ var
 		var
 			  trimmedClasses = strTrim.call(elem.className)
 			, classes = trimmedClasses ? trimmedClasses.split(/\s+/) : []
+			, i = 0
+			, len = classes.length
 		;
-		for (var i = 0, len = classes.length; i < len; i++) {
+		for (; i < len; i++) {
 			this.push(classes[i]);
 		}
 		this._updateClassName = function () {
