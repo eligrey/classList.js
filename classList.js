@@ -1,4 +1,3 @@
-
 /*
  * classList.js: Cross-browser full element.classList implementation.
  * 2011-06-15
@@ -17,6 +16,8 @@ if (typeof document !== "undefined" && !("classList" in document.createElement("
 (function (view) {
 
 "use strict";
+
+if (!('HTMLElement' in view) && !('Element' in view)) return;
 
 var
 	  classListProp = "classList"
