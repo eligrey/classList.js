@@ -89,28 +89,64 @@ classListProto.contains = function (token) {
 	token += "";
 	return checkTokenAndGetIndex(this, token) !== -1;
 };
-classListProto.add = function (token) {
-	token += "";
-	if (checkTokenAndGetIndex(this, token) === -1) {
-		this.push(token);
+classListProto.add = function () {
+	var
+		  tokens = arguments
+		, i = 0
+		, l = tokens.length
+		, token
+		, undated = false
+	;
+	do {
+		token = tokens[i] + "";
+		if (checkTokenAndGetIndex(this, token) === -1) {
+			this.push(token);
+			undated = true;
+		}
+	}
+	while(++i < l);
+
+	if(undated) {
 		this._updateClassName();
 	}
 };
-classListProto.remove = function (token) {
-	token += "";
-	var index = checkTokenAndGetIndex(this, token);
-	if (index !== -1) {
-		this.splice(index, 1);
+classListProto.remove = function () {
+	var
+		  tokens = arguments
+		, i = 0
+		, l = tokens.length
+		, token
+		, undated = false
+	;
+	do {
+		token = tokens[i] + "";
+		var index = checkTokenAndGetIndex(this, token);
+		if (index !== -1) {
+			this.splice(index, 1);
+			undated = true;
+		}
+	}
+	while(++i < l);
+
+	if(undated) {
 		this._updateClassName();
 	}
 };
-classListProto.toggle = function (token) {
+classListProto.toggle = function (token, forse) {
 	token += "";
-	if (checkTokenAndGetIndex(this, token) === -1) {
-		this.add(token);
-	} else {
-		this.remove(token);
+
+	var result = this.contains(token)
+		, method = result ?
+			forse !== true && "remove"
+			:
+			forse !== false && "add"
+	;
+
+	if(method) {
+		this[method](token);
 	}
+
+	return result;
 };
 classListProto.toString = function () {
 	return this.join(" ");
