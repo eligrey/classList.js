@@ -1,6 +1,6 @@
 /*
  * classList.js: Cross-browser full element.classList implementation.
- * 2011-06-15
+ * 2012-11-15
  *
  * By Eli Grey, http://eligrey.com
  * Public Domain.
@@ -95,18 +95,18 @@ classListProto.add = function () {
 		, i = 0
 		, l = tokens.length
 		, token
-		, undated = false
+		, updated = false
 	;
 	do {
 		token = tokens[i] + "";
 		if (checkTokenAndGetIndex(this, token) === -1) {
 			this.push(token);
-			undated = true;
+			updated = true;
 		}
 	}
-	while(++i < l);
+	while (++i < l);
 
-	if(undated) {
+	if (updated) {
 		this._updateClassName();
 	}
 };
@@ -116,33 +116,34 @@ classListProto.remove = function () {
 		, i = 0
 		, l = tokens.length
 		, token
-		, undated = false
+		, updated = false
 	;
 	do {
 		token = tokens[i] + "";
 		var index = checkTokenAndGetIndex(this, token);
 		if (index !== -1) {
 			this.splice(index, 1);
-			undated = true;
+			updated = true;
 		}
 	}
-	while(++i < l);
+	while (++i < l);
 
-	if(undated) {
+	if (updated) {
 		this._updateClassName();
 	}
 };
 classListProto.toggle = function (token, forse) {
 	token += "";
 
-	var result = this.contains(token)
+	var
+		  result = this.contains(token)
 		, method = result ?
 			forse !== true && "remove"
-			:
+		:
 			forse !== false && "add"
 	;
 
-	if(method) {
+	if (method) {
 		this[method](token);
 	}
 
