@@ -1,0 +1,5 @@
+{
+  "name": "classlist",
+  "version": "0.0.0",
+  "main": ["./classList.js"]
+}
