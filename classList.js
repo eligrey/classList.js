@@ -11,7 +11,7 @@
 
 /*! @source http://purl.eligrey.com/github/classList.js/blob/master/classList.js*/
 
-if (typeof document !== "undefined" && !("classList" in document.createElement("a"))) {
+if (typeof document !== "undefined" && !("classList" in document.documentElement)) {
 
 (function (view) {
 
