@@ -7,22 +7,28 @@
  * NO WARRANTY EXPRESSED OR IMPLIED. USE AT YOUR OWN RISK.
  */
 
+// Modified to add classList support to SVG elements.
+// Required by (older) WebKit browsers, such as Safari 5.1 and Android browser.
+// Not required by Chrome, Firefox, Opera.
+
 /*global self, document, DOMException */
 
 /*! @source http://purl.eligrey.com/github/classList.js/blob/master/classList.js*/
 
-if (typeof document !== "undefined" && !("classList" in document.createElement("a"))) {
+if (typeof document !== "undefined" &&
+	document.getElementsByTagName("svg").length > 0 &&
+	!("classList" in document.getElementsByTagName("svg")[0])) {
 
 (function (view) {
 
 "use strict";
 
-if (!('HTMLElement' in view) && !('Element' in view)) return;
+if (!('SVGElement' in view)) return;
 
 var
 	  classListProp = "classList"
 	, protoProp = "prototype"
-	, elemCtrProto = (view.HTMLElement || view.Element)[protoProp]
+	, elemCtrProto = (view.SVGElement)[protoProp]
 	, objCtr = Object
 	, strTrim = String[protoProp].trim || function () {
 		return this.replace(/^\s+|\s+$/g, "");
@@ -62,7 +68,7 @@ var
 	}
 	, ClassList = function (elem) {
 		var
-			  trimmedClasses = strTrim.call(elem.className)
+			  trimmedClasses = strTrim.call(elem.getAttribute('class'))
 			, classes = trimmedClasses ? trimmedClasses.split(/\s+/) : []
 			, i = 0
 			, len = classes.length
@@ -71,7 +77,7 @@ var
 			this.push(classes[i]);
 		}
 		this._updateClassName = function () {
-			elem.className = this.toString();
+			elem.setAttribute('class', this.toString());
 		};
 	}
 	, classListProto = ClassList[protoProp] = []
