@@ -11,7 +11,10 @@
 
 /*! @source http://purl.eligrey.com/github/classList.js/blob/master/classList.js*/
 
-if ("document" in self && !("classList" in document.createElement("_"))) {
+if ("document" in self && !(
+		"classList" in document.createElement("_") &&
+		"classList" in document.createElementNS("http://www.w3.org/2000/svg", "svg")
+	)) {
 
 (function (view) {
 
