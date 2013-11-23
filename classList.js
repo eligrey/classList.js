@@ -65,7 +65,7 @@ var
 	}
 	, ClassList = function (elem) {
 		var
-			  trimmedClasses = strTrim.call(elem.getAttribute("class"))
+			  trimmedClasses = strTrim.call(elem.getAttribute("class") || "")
 			, classes = trimmedClasses ? trimmedClasses.split(/\s+/) : []
 			, i = 0
 			, len = classes.length
