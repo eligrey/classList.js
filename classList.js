@@ -1,6 +1,6 @@
 /*
  * classList.js: Cross-browser full element.classList implementation.
- * 2012-11-15
+ * 2014-01-07
  *
  * By Eli Grey, http://eligrey.com
  * Public Domain.
@@ -11,10 +11,7 @@
 
 /*! @source http://purl.eligrey.com/github/classList.js/blob/master/classList.js*/
 
-if ("document" in self && !(
-		"classList" in document.createElement("_") &&
-		"classList" in document.createElementNS("http://www.w3.org/2000/svg", "svg")
-	)) {
+if ("document" in self && !("classList" in document.createElement("_"))) {
 
 (function (view) {
 
