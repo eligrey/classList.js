@@ -11,7 +11,7 @@
 
 /*! @source http://purl.eligrey.com/github/classList.js/blob/master/classList.js*/
 
-if ("document" in self && !("classList" in document.createElement("_"))) {
+if ("document" in self && (!("classList" in document.createElement("_")) || !("classList" in document.createElementNS("_")))) {
 
 (function (view) {
 
