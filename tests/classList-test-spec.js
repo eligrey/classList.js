@@ -12,7 +12,7 @@ data = [
             return this.el.className;
         }
     },
-    { // TODO Implement http://toddmotto.com/hacking-svg-traversing-with-ease-addclass-removeclass-toggleclass-functions/
+    {
         el: document.getElementById('svg-el'),
         title: '.classList for SVGElements',
         setClassName: function(className) {
