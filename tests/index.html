@@ -19,15 +19,19 @@
     <script src="node_modules/chai/chai.js"></script>
 
     <script>
-        mocha.setup('bdd');
-        var should = chai.should();
+        var should = chai.should()
+          , data, i;
+
+        mocha.setup({
+            ui: 'bdd',
+            globals: [data, i]
+        });
     </script>
 
     <script src="../classList.js"></script>
     <script src="classList-test-spec.js"></script>
 
     <script>
-        mocha.checkLeaks();
         mocha.run();
     </script>
 
