@@ -9,6 +9,7 @@ Dependencies are managed with [NPM](https://www.npmjs.org/).
 *These tests are intended for running in the old or crap browsers (IE8+).*
 
 To setup testing environment:
+
 1. Check out repository to folder accessible from web-server
 2. Run `npm install` from `tests/` folder
 3. Load `tests/index.html` in browser
