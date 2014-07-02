@@ -121,7 +121,7 @@ classListProto.remove = function () {
 	do {
 		token = tokens[i] + "";
 		var index;
-		while ((index  = checkTokenAndGetIndex(this, token)) !== -1) {
+		while ((index = checkTokenAndGetIndex(this, token)) !== -1) {
 			this.splice(index, 1);
 			updated = true;
 		}
