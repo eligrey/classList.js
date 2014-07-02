@@ -8,7 +8,7 @@
     <script>
         window.onload = function() {
             var box = document.getElementById('box');
-            box.className = 'test test test'; // Spec allows redundant classes
+            box.className = 'test test test'; // Redundant classes arent' prohibited
             box.classList.remove('test');
             // This will pass in new Chrome, FF, and IE
             // but fail in IE 8/9
