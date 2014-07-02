@@ -120,8 +120,8 @@ classListProto.remove = function () {
 	;
 	do {
 		token = tokens[i] + "";
-		var index = checkTokenAndGetIndex(this, token);
-		if (index !== -1) {
+		var index;
+		if ((index  = checkTokenAndGetIndex(this, token)) !== -1) {
 			this.splice(index, 1);
 			updated = true;
 		}
