@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="classList.min.js"></script>
+    <script>
+        window.onload = function() {
+            var box = document.getElementById('box');
+            box.className = 'test test test'; // Spec allows redundant classes
+            box.classList.remove('test');
+            // This will pass in new Chrome, FF, and IE
+            // but fail in IE 8/9
+            if(box.classList.contains('test')) {
+                box.style.backgroundColor = 'red';
+                box.innerHTML = 'Fail';
+            } else {
+                box.style.backgroundColor = 'green';
+                box.innerHTML = 'Success';
+            }
+        }
+    </script>
+</head>
+<body>
+    The below box will be green in browsers with native classList support. It will be red if the classList polyfill doesn't handle duplicate classes<br>
+    <div id="box" style="width: 100px; height: 100px; color: white"></div>
+</body>
+</html>
