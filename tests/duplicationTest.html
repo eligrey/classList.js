@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- This page can be previewed at
+    http://htmlpreview.github.io/?https://github.com/acbabis/classList.js/blob/master/tests/duplicationTest.html
+    -->
+    <script type="text/javascript" src="../classList.js"></script>
+    <script>
+        window.onload = function() {
+            var box = document.getElementById('box');
+            box.className = 'test test test'; // Redundant classes aren't prohibited
+            box.classList.remove('test');
+            // This will pass in new Chrome, FF, and IE
+            // but fail in IE 8/9
+            if(box.classList.contains('test')) {
+                box.style.backgroundColor = 'red';
+                box.innerHTML = 'Fail';
+            } else {
+                box.style.backgroundColor = 'green';
+                box.innerHTML = 'Success';
+            }
+        }
+    </script>
+</head>
+<body>
+    The below box will be green in browsers with native classList support.
+    It will be red if the classList polyfill doesn't handle duplicate classes<br>
+    <div id="box" style="width: 100px; height: 100px; color: white"></div>
+</body>
+</html>
