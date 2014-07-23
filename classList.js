@@ -180,7 +180,7 @@ if (objCtr.defineProperty) {
 
 } else {
 // There is full or partial native classList support, so just check if we need
-// to normalize the add/remove API.
+// to normalize the add/remove and toggle APIs.
 
 (function () {
 	"use strict";
@@ -206,6 +206,23 @@ if (objCtr.defineProperty) {
 		};
 		createMethod('add');
 		createMethod('remove');
+	}
+
+	testElement.classList.toggle("c3", false);
+
+	// Polyfill for IE 10 and Firefox <24, where classList.toggle does not
+	// support the second argument.
+	if (testElement.classList.contains("c3")) {
+		var _toggle = DOMTokenList.prototype.toggle;
+
+		DOMTokenList.prototype.toggle = function(token, force) {
+			if (1 in arguments && !this.contains(token) === !force) {
+				return force;
+			} else {
+				return _toggle.call(this, token);
+			}
+		};
+
 	}
 
 	testElement = null;
