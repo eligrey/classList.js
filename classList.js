@@ -149,7 +149,11 @@ classListProto.toggle = function (token, force) {
 		this[method](token);
 	}
 
-	return !result;
+	if (force === true || force === false) {
+		return force;
+	} else {
+		return !result;
+	}
 };
 classListProto.toString = function () {
 	return this.join(" ");
