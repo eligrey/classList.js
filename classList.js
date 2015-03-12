@@ -1,10 +1,10 @@
 /*
  * classList.js: Cross-browser full element.classList implementation.
- * 2014-12-13
+ * 2015-03-12
  *
  * By Eli Grey, http://eligrey.com
- * Public Domain.
- * NO WARRANTY EXPRESSED OR IMPLIED. USE AT YOUR OWN RISK.
+ * License: Dedicated to the public domain.
+ *   See https://github.com/eligrey/classList.js/blob/master/LICENSE.md
  */
 
 /*global self, document, DOMException */
