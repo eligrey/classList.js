@@ -1,6 +1,25 @@
 urls = require('system').args.slice(1)
 page = require('webpage').create()
 timeout = 3000
+timer = null
+exitStatus = 0
+
+openNextUrl = ->
+  if url = urls.shift()
+    console.log url
+    page.open url, (status) ->
+      if status isnt 'success'
+        console.error "failed opening #{url}: #{status}"
+        exitStatus = 2
+        openNextUrl()
+      else
+        timer = setTimeout ->
+          console.error "ERROR: Test execution has timed out on #{url}"
+          exitStatus = 3
+          openNextUrl()
+        , timeout
+  else
+    phantom.exit exitStatus
 
 qunitHooks = ->
   window.document.addEventListener 'DOMContentLoaded', ->
@@ -32,15 +51,7 @@ page.onCallback = (event) ->
   else if event.name is 'QUnit.done'
     res = event.data
     console.log "#{res.total} tests, #{res.failed} failed. Done in #{res.runtime} ms"
-    phantom.exit if !res.total or res.failed then 1 else 0
+    exitStatus = 1 if !res.total or res.failed
+    openNextUrl()
 
-for url in urls
-  page.open url, (status) ->
-    if status isnt 'success'
-      console.error "failed opening #{url}: #{status}"
-      phantom.exit 1
-    else
-      setTimeout ->
-        console.error "ERROR: Test execution has timed out"
-        phantom.exit 1
-      , timeout
+openNextUrl()
