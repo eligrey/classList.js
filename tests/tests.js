@@ -1,8 +1,9 @@
 QUnit.module("classList.remove");
 
 QUnit.test("Removes duplicated instances of class", function(assert) {
-	var el = document.createElement("p"), cList = el[classListProp];
+	var el = document.createElement("p");
 	el.className = "ho ho ho"
+	var cList = el[classListProp];
 
 	cList.remove("ho");
 	assert.ok(!cList.contains("ho"), "Should remove all instances of 'ho'");
