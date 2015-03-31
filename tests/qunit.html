@@ -9,7 +9,13 @@
 <div id="qunit"></div>
 <div id="qunit-fixture"></div>
 <script src="http://code.jquery.com/qunit/qunit-1.14.0.js"></script>
-<script src="../classList.js"></script>
+<script>
+  (function() {
+    var match = location.search.match(/classListProp=(\w+)/)
+    window.classListProp = match ? match[1] : 'classList'
+    document.write('<script src="../classList.js?classListProp='+classListProp+'&'+(+new Date)+'"></scr'+'ipt>')
+  })()
+</script>
 <script src="tests.js"></script>
 </body>
 </html>

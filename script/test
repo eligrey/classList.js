@@ -12,4 +12,5 @@ while ! lsof -i :$port >/dev/null; do
 done
 
 exec phantomjs tests/runner.coffee \
-  "http://localhost:${port}/tests/qunit.html"
+  "http://localhost:${port}/tests/qunit.html" \
+  "http://localhost:${port}/tests/qunit.html?classListProp=testClassList"
