@@ -11,7 +11,7 @@
 
 /*! @source http://purl.eligrey.com/github/classList.js/blob/master/classList.js */
 
-if ("document" in self) {
+if ("document" in window.self) {
 
 // Full polyfill for browsers with no classList support
 // Including IE < Edge missing SVGElement.classList
@@ -182,7 +182,7 @@ if (objCtr.defineProperty) {
 	elemCtrProto.__defineGetter__(classListProp, classListGetter);
 }
 
-}(self));
+}(window.self));
 
 } else {
 // There is full or partial native classList support, so just check if we need
