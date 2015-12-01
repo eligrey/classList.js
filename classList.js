@@ -173,7 +173,9 @@ if (objCtr.defineProperty) {
 	try {
 		objCtr.defineProperty(elemCtrProto, classListProp, classListPropDesc);
 	} catch (ex) { // IE 8 doesn't support enumerable:true
-		if (ex.number === -0x7FF5EC54) {
+		// adding undefined to fight this issue https://github.com/eligrey/classList.js/issues/36
+		// modernie IE8-MSW7 machine has IE8 8.0.6001.18702 and is affected
+		if (ex.number === undefined || ex.number === -0x7FF5EC54) {
 			classListPropDesc.enumerable = false;
 			objCtr.defineProperty(elemCtrProto, classListProp, classListPropDesc);
 		}
