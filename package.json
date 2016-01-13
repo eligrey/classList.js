@@ -1,0 +1,28 @@
+{
+  "name": "mdn-classlist.js",
+  "version": "1.0.0",
+  "description": "Cross-browser JavaScript shim that fully implements element.classList (referenced on MDN)",
+  "main": "classList.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "bash ./script/test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eligrey/classList.js.git"
+  },
+  "keywords": [
+    "classList",
+    "polyfill",
+    "shim",
+    "cross-browser"
+  ],
+  "author": "me@eligrey.com",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/eligrey/classList.js/issues"
+  },
+  "homepage": "https://github.com/eligrey/classList.js#readme"
+}
