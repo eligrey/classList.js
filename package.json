@@ -1,6 +1,6 @@
 {
   "name": "mdn-classlist.js",
-  "version": "1.0.0",
+  "version": "1.1.20150312",
   "description": "Cross-browser JavaScript shim that fully implements element.classList (referenced on MDN)",
   "main": "classList.js",
   "directories": {
@@ -20,7 +20,7 @@
     "cross-browser"
   ],
   "author": "me@eligrey.com",
-  "license": "Unlicense",
+  "license": "Public Domain",
   "bugs": {
     "url": "https://github.com/eligrey/classList.js/issues"
   },
