@@ -13,6 +13,7 @@
 
 if ("document" in self) {
     (function() {
+        "use strict";
 
         var setPropOnDOM = true;
 
