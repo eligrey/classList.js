@@ -1,8 +1,8 @@
 {
-  "name": "classlist.js",
+  "name": "classlist-polyfill",
   "version": "1.1.20150312",
   "description": "Cross-browser JavaScript shim that fully implements element.classList (referenced on MDN)",
-  "main": "classList.js",
+  "main": "src/index.js",
   "directories": {
     "test": "tests"
   },
@@ -19,7 +19,10 @@
     "shim",
     "cross-browser"
   ],
-  "author": "me@eligrey.com",
+  "author": "Eli Grey <me@eligrey.com>",
+  "contributors": [
+    "Yola Engineering <engineers@yola.com> (https://www.yola.com/)"
+  ],
   "license": "Public Domain",
   "bugs": {
     "url": "https://github.com/eligrey/classList.js/issues"
