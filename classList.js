@@ -184,7 +184,8 @@ if (objCtr.defineProperty) {
 
 }(self));
 
-} else {
+}
+
 // There is full or partial native classList support, so just check if we need
 // to normalize the add/remove and toggle APIs.
 
@@ -235,6 +236,3 @@ if (objCtr.defineProperty) {
 }());
 
 }
-
-}
-
