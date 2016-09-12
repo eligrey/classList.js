@@ -20,7 +20,7 @@
     "cross-browser"
   ],
   "author": "me@eligrey.com",
-  "license": "Public Domain",
+  "license": "Unlicense",
   "bugs": {
     "url": "https://github.com/eligrey/classList.js/issues"
   },
