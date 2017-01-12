@@ -1,6 +1,6 @@
 /*
  * classList.js: Cross-browser full element.classList implementation.
- * 1.1.20150312
+ * 1.1.20170112
  *
  * By Eli Grey, http://eligrey.com
  * License: Dedicated to the public domain.
