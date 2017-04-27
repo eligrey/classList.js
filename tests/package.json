@@ -1,0 +1,9 @@
+{
+  "name": "classList-tests",
+  "version": "0.1.0",
+  "description": "tests for running in browsers without classList support",
+  "devDependencies": {
+    "mocha": "~1.18.0",
+    "chai": "~1.9.0"
+  }
+}

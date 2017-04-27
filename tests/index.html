@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>classList.js: Tests</title>
+    <link rel="stylesheet" href="node_modules/mocha/mocha.css" />
+
+</head>
+<body>
+
+    <div id="mocha"></div>
+
+    <?xml version="1.0" standalone="no"?>
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <rect id="svg-el" x="5" y="5" width="10" height="10"></rect>
+    </svg>
+
+    <script src="node_modules/mocha/mocha.js"></script>
+    <script src="node_modules/chai/chai.js"></script>
+
+    <script>
+        var should = chai.should()
+          , data, i;
+
+        mocha.setup({
+            ui: 'bdd',
+            globals: [data, i]
+        });
+    </script>
+
+    <script src="../classList.js"></script>
+    <script src="classList-test-spec.js"></script>
+
+    <script>
+        mocha.run();
+    </script>
+
+</body>
+</html>
