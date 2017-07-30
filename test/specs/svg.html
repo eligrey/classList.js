@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>svgElement.classList</title>
+    <style>
+      .red {
+        fill: red;
+      }
+      .green {
+        fill: green;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1>svgElement.classList</h1>
+
+    <svg id="native" class="red" xmlns="http://www.w3.org/2000/svg">
+      <path d="M50,3l12,36h38l-30,22l11,36l-31-21l-31,21l11-36l-30-22h38z">
+    </svg>
+
+    <script>
+      try {
+        document.getElementById('native').classList.remove('red');
+        document.getElementById('native').classList.toggle('green');
+      } catch(e) {};
+    </script>
+
+    <svg id="polyfilled" class="red" xmlns="http://www.w3.org/2000/svg">
+      <path d="M50,3l12,36h38l-30,22l11,36l-31-21l-31,21l11-36l-30-22h38z">
+    </svg>
+
+    <script src="/classList.js"></script>
+    <script>
+      document.getElementById('polyfilled').classList.remove('red');
+      document.getElementById('polyfilled').classList.toggle('green');
+    </script>
+
+  </body>
+</html>

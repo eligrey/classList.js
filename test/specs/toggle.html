@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>classList.toggle</title>
+  </head>
+  <body>
+
+    <h1>classList.remove</h1>
+
+
+    <div id="native-on"></div>
+    <div id="native-off" class="yo"></div>
+    <div id="native-force-on" class="yo"></div>
+    <div id="native-force-off"></div>
+    <script>
+      try {
+        var el;
+
+        el = document.getElementById('native-on')
+        window.nativeToggleOn = el.classList.toggle('yo');
+
+        el = document.getElementById('native-off')
+        window.nativeToggleOff = el.classList.toggle('yo');
+
+        el = document.getElementById('native-force-on');
+        window.nativeToggleForceOn = el.classList.toggle('yo', true);
+
+        el = document.getElementById('native-force-off');
+        window.nativeToggleForceOff = el.classList.toggle('yo', false);
+
+      } catch(e) {};
+    </script>
+
+
+    <div id="polyfilled-on"></div>
+    <div id="polyfilled-off" class="yo"></div>
+    <div id="polyfilled-force-on" class="yo"></div>
+    <div id="polyfilled-force-off"></div>
+    <script src="/classList.js"></script>
+    <script>
+      var el;
+
+      el = document.getElementById('polyfilled-on')
+      window.polyfilledToggleOn = el.classList.toggle('yo');
+
+      el = document.getElementById('polyfilled-off')
+      window.polyfilledToggleOff = el.classList.toggle('yo');
+
+      el = document.getElementById('polyfilled-force-on');
+      window.polyfilledToggleForceOn = el.classList.toggle('yo', true);
+
+      el = document.getElementById('polyfilled-force-off');
+      window.polyfilledToggleForceOff = el.classList.toggle('yo', false)
+    </script>
+
+
+  </body>
+</html>
