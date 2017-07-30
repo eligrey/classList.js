@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>classList.add</title>
+  </head>
+  <body>
+
+    <h1>classList.add</h1>
+
+    <div id="native"></div>
+    <script>
+      try {
+        document.getElementById('native').classList.add('supported');
+      } catch(e) {};
+    </script>
+
+    <div id="polyfilled"></div>
+    <script src="/classList.js"></script>
+    <script>
+      document.getElementById('polyfilled').classList.add('all-good');
+    </script>
+
+  </body>
+</html>
