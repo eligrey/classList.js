@@ -1,5 +1,9 @@
 # classList.js
 
+[![Test Status](https://saucelabs.com/buildstatus/classlist-polyfill)][sauce]
+
+[sauce]: https://saucelabs.com/u/classlist-polyfill
+
 Cross-browser JavaScript shim that fully implements `element.classList`.
 
 Refer to [the MDN page on `element.classList`][MDN] for more information.

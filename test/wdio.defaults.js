@@ -26,6 +26,11 @@ exports.config = {
     global.expect = chai.expect;
     const session = browser.session().value;
     global.agent = `${session.browserName} ${session.browserVersion}`;
+    if (process.env.TRAVIS_BUILD_NUMBER) {
+      // enable saucelab badges
+      capabilities.public = true;
+      capabilities.build = process.env.TRAVIS_BUILD_NUMBER;
+    }
   },
 
   baseUrl: 'http://localhost:4567',
