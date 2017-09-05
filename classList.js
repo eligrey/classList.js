@@ -225,7 +225,9 @@ if (objCtr.defineProperty) {
 		var _toggle = DOMTokenList.prototype.toggle;
 
 		DOMTokenList.prototype.toggle = function(token, force) {
-			if (1 in arguments && !this.contains(token) === !force) {
+			var _ntoken = !this.contains(token),
+			_nforce = !force;
+			if (1 in arguments &&  _ntoken === _nforce) {
 				return force;
 			} else {
 				return _toggle.call(this, token);
