@@ -1,6 +1,15 @@
-classList.js is a cross-browser JavaScript shim that fully implements `element.classList`. Refer to [the MDN page on `element.classList`][1] for more information.
+classList.js is a cross-browser JavaScript shim that implements `element.classList`. Refer to [the MDN page on `element.classList`][1] for more information.
 
 This works in every browser except IE 7 or earlier.
+
+| Method     | Supported |
+| ---------- | --------- |
+| `add`      | :white_check_mark: Yes |
+| `remove`   | :white_check_mark: Yes |
+| `item`     | :white_check_mark: Yes |
+| `toggle`   | :white_check_mark: Yes |
+| `contains` | :white_check_mark: Yes |
+| `replace`  | :x: No [#70](https://github.com/eligrey/classList.js/issues/70) |
 
 An older version is hosted at public CDNs, allowing you to use this already small file at nearly zero size overhead. Use one of these URLs:
 
