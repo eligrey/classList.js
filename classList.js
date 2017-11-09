@@ -1,6 +1,6 @@
 /*
  * classList.js: Cross-browser full element.classList implementation.
- * 1.2.20171109
+ * 1.2.201711092
  *
  * By Eli Grey, http://eligrey.com
  * License: Dedicated to the public domain.
@@ -176,7 +176,7 @@ if (objCtr.defineProperty) {
 		  get: classListGetter
 		, enumerable: true
 		, configurable: true
-	};view.x=[elemCtrProto, classListProp, classListPropDesc]
+	};
 	try {
 		objCtr.defineProperty(elemCtrProto, classListProp, classListPropDesc);
 	} catch (ex) { // IE 8 doesn't support enumerable:true
