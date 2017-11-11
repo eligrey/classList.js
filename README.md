@@ -2,7 +2,7 @@ classList.js is a cross-browser JavaScript shim that fully implements `element.c
 
 This works in every browser except IE 7 or earlier.
 
-An older version is hosted at public CDNs, allowing you to use this already small file at nearly zero size overhead. Use one of these URLs:
+classList.js is available on these public CDN URLs, allowing you to use this already small file at nearly zero size overhead.
 
   - <https://cdnjs.cloudflare.com/ajax/libs/classlist/1.2.201711092/classList.min.js>
   - <https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.201711092/classList.min.js>
