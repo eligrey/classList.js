@@ -55,6 +55,23 @@ QUnit.test("Adds class with second argument", function(assert) {
 	);
 });
 
+
+QUnit.test("Adds class to an svg", function(assert) {
+	var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+	var cList = svg.classList;
+
+	cList.add("c1");
+	assert.ok(svg.getAttribute("class") === "c1", "Adds a class");
+});
+
+QUnit.test("Toggle class to an svg", function(assert) {
+	var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+	var cList = svg.classList;
+
+	cList.toggle("c1");
+	assert.ok(svg.getAttribute("class") === "c1", "Togle a class (not present)");
+});
+
 QUnit.test("Removes class with second argument", function(assert) {
 	var cList = document.createElement("p").classList;
 

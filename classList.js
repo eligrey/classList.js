@@ -94,7 +94,7 @@ classListProto.item = function (i) {
 	return this[i] || null;
 };
 classListProto.contains = function (token) {
-	return !~checkTokenAndGetIndex(this, token + "");
+	return checkTokenAndGetIndex(this, token + "") !== -1;
 };
 classListProto.add = function () {
 	var
@@ -106,7 +106,7 @@ classListProto.add = function () {
 	;
 	do {
 		token = tokens[i] + "";
-		if (~checkTokenAndGetIndex(this, token)) {
+		if (checkTokenAndGetIndex(this, token) === -1) {
 			this.push(token);
 			updated = true;
 		}
@@ -129,7 +129,7 @@ classListProto.remove = function () {
 	do {
 		token = tokens[i] + "";
 		index = checkTokenAndGetIndex(this, token);
-		while (~index) {
+		while (index !== -1) {
 			this.splice(index, 1);
 			updated = true;
 			index = checkTokenAndGetIndex(this, token);
@@ -162,7 +162,7 @@ classListProto.toggle = function (token, force) {
 };
 classListProto.replace = function (token, replacement_token) {
 	var index = checkTokenAndGetIndex(token + "");
-	if (~index) {
+	if (index !== -1) {
 		this.splice(index, 1, replacement_token);
 		this._updateClassName();
 	}
@@ -248,7 +248,7 @@ if (objCtr.defineProperty) {
 				  tokens = this.toString().split(" ")
 				, index = tokens.indexOf(token + "")
 			;
-			if (~index) {
+			if (index !== -1) {
 				tokens = tokens.slice(index);
 				this.remove.apply(this, tokens);
 				this.add(replacement_token);
