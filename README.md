@@ -4,8 +4,8 @@ This works in every browser except IE 7 or earlier.
 
 classList.js is available on these public CDN URLs, allowing you to use this already small file at nearly zero size overhead.
 
-  - <https://cdnjs.cloudflare.com/ajax/libs/classlist/1.2.201711092/classList.min.js>
-  - <https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.201711092/classList.min.js>
+  - <https://cdnjs.cloudflare.com/ajax/libs/classlist/1.2.20171210/classList.min.js>
+  - <https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20171210/classList.min.js>
 
 If you would like other versions (such as the current one) hosted there, follow the instructions at 
 https://github.com/jsdelivr/jsdelivr
