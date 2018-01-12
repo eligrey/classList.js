@@ -1,6 +1,6 @@
 {
   "name": "classlist.js",
-  "version": "1.2.20171210",
+  "version": "1.2.20180112",
   "description": "Cross-browser JavaScript shim that fully implements element.classList (referenced on MDN)",
   "main": "classList.js",
   "directories": {
