@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eligrey/classList.js.git"
+    "url": "git://github.com/englishextra/eligrey-classlist-js-polyfill.git"
   },
   "keywords": [
     "classList",
