@@ -1,18 +1,56 @@
-classList.js is a cross-browser JavaScript shim that fully implements `element.classList`. Refer to [the MDN page on `element.classList`][1] for more information.
+# classList.js
 
-This works in every browser except IE 7 or earlier.
+[![Test Status](https://saucelabs.com/buildstatus/classlist-polyfill)][sauce]
 
-classList.js is available on these public CDN URLs, allowing you to use this already small file at nearly zero size overhead.
+[sauce]: https://saucelabs.com/u/classlist-polyfill
 
-  - <https://cdnjs.cloudflare.com/ajax/libs/classlist/1.2.20171210/classList.min.js>
-  - <https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20171210/classList.min.js>
+Cross-browser JavaScript shim that fully implements `element.classList`.
 
-If you would like other versions (such as the current one) hosted there, follow the instructions at 
-https://github.com/jsdelivr/jsdelivr
-and
-https://github.com/cdnjs/cdnjs
-to prepare a pull request.
+Refer to [the MDN page on `element.classList`][MDN] for more information.
 
-![Tracking image](https://in.getclicky.com/212712ns.gif)
+[MDN]: https://developer.mozilla.org/en/DOM/element.classList
 
-  [1]: https://developer.mozilla.org/en/DOM/element.classList "MDN / DOM / element.classList"
+
+## Development
+
+### Getting started
+
+```
+npm install
+```
+
+### Run the tests using a local web driver
+
+```
+npm test
+```
+
+### Run the tests using cloud browsers
+
+Requires a [Sauce Labs][] username and access key.
+
+```
+echo '{"user": "<username>", "key": "<access key>" }' > user.json
+npm test:ci
+```
+
+[Sauce Labs]: https://saucelabs.com/
+
+### Run the tests using custom configuration
+
+The tests use [webdriver.io][].
+
+Create a `wdio.conf.js`:
+
+```
+wdio config
+# or extend an existing config
+cp test/wdio.sample.js wdio.conf.js
+```
+
+Run the tests:
+```
+wdio
+```
+
+[webdriver.io]: http://webdriver.io/

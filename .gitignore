@@ -1,0 +1,6 @@
+/user.json
+/wdio.*.js
+classlist.js-*.tgz
+node_modules/
+package-lock.json
+package/

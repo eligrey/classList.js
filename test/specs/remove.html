@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>classList.remove</title>
+  </head>
+  <body>
+
+    <h1>classList.remove</h1>
+
+    <div id="native-simple" class="hi yo"></div>
+    <div id="native-repeat" class="yo yo yo"></div>
+    <div id="native-list" class="hi yo hello"></div>
+    <script>
+      try {
+        document.getElementById('native-simple').classList.remove('yo');
+        document.getElementById('native-repeat').classList.remove('yo');
+        document.getElementById('native-list').classList.remove('yo');
+      } catch(e) {};
+    </script>
+
+    <div id="polyfilled-simple" class="hi yo"></div>
+    <div id="polyfilled-repeat" class="yo yo yo"></div>
+    <div id="polyfilled-list" class="hi yo hello"></div>
+    <script src="/classList.js"></script>
+    <script>
+      document.getElementById('polyfilled-simple').classList.remove('yo');
+      document.getElementById('polyfilled-repeat').classList.remove('yo');
+      document.getElementById('polyfilled-list').classList.remove('yo');
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>classList.add</title>
+  </head>
+  <body>
+
+    <h1>classList.add</h1>
+
+    <div id="native-simple"></div>
+    <div id="native-ab"></div>
+    <script>
+      try {
+        document.getElementById('native-simple').classList.add('supported');
+        document.getElementById('native-ab').classList.add('a', 'b');
+      } catch(e) {};
+    </script>
+
+    <div id="polyfilled-simple"></div>
+    <div id="polyfilled-ab"></div>
+    <script src="/classList.js"></script>
+    <script>
+      document.getElementById('polyfilled-simple').classList.add('all-good');
+      document.getElementById('polyfilled-ab').classList.add('a', 'b');
+    </script>
+
+  </body>
+</html>
