@@ -1,7 +1,19 @@
+QUnit.module("classList.remove");
+
+QUnit.test("Removes duplicated instances of class", function(assert) {
+	var el = document.createElement("p");
+	el.className = "ho ho ho";
+	var cList = el[classListProp];
+
+	cList.remove("ho");
+	assert.ok(!cList.contains("ho"), "Should remove all instances of 'ho'");
+	assert.strictEqual(el.className, "");
+});
+
 QUnit.module("classList.toggle");
 
 QUnit.test("Adds a class", function(assert) {
-	var cList = document.createElement("p").classList;
+	var cList = document.createElement("p")[classListProp];
 
 	cList.toggle("c1");
 	assert.ok(cList.contains("c1"), "Adds a class that is not present");
@@ -14,7 +26,7 @@ QUnit.test("Adds a class", function(assert) {
 });
 
 QUnit.test("Removes a class", function(assert) {
-	var cList = document.createElement("p").classList;
+	var cList = document.createElement("p")[classListProp];
 
 	cList.add("c1");
 	cList.toggle("c1");
@@ -29,7 +41,7 @@ QUnit.test("Removes a class", function(assert) {
 });
 
 QUnit.test("Adds class with second argument", function(assert) {
-	var cList = document.createElement("p").classList;
+	var cList = document.createElement("p")[classListProp];
 
 	cList.toggle("c1", true);
 	assert.ok(cList.contains("c1"), "Adds a class");
@@ -56,7 +68,7 @@ QUnit.test("Adds class with second argument", function(assert) {
 });
 
 QUnit.test("Removes class with second argument", function(assert) {
-	var cList = document.createElement("p").classList;
+	var cList = document.createElement("p")[classListProp];
 
 	cList.add("c1");
 	cList.toggle("c1", false);
