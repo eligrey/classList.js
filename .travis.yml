@@ -1,4 +1,11 @@
-script: script/test
 language: node_js
 node_js:
-- '0.10'
+- "lts/*"
+
+install:
+  - wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-1.9.8-linux-x86_64.tar.bz2
+  - tar -xvf ./phantomjs-1.9.8-linux-x86_64.tar.bz2
+  - export PATH=$PWD/phantomjs-1.9.8-linux-x86_64/bin:$PATH
+
+script:
+  - npm test
