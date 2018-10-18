@@ -16,7 +16,7 @@ if ("document" in self) {
 // Full polyfill for browsers with no classList support
 // Including IE < Edge missing SVGElement.classList
 if (
-	   !("classList" in document.createElement("_")) 
+	   !("classList" in document.createElement("_"))
 	|| document.createElementNS
 	&& !("classList" in document.createElementNS("http://www.w3.org/2000/svg","g"))
 ) {
@@ -104,14 +104,13 @@ classListProto.add = function () {
 		, token
 		, updated = false
 	;
-	do {
+	while (++i <= l) {
 		token = tokens[i] + "";
 		if (!~checkTokenAndGetIndex(this, token)) {
 			this.push(token);
 			updated = true;
 		}
-	}
-	while (++i < l);
+	};
 
 	if (updated) {
 		this._updateClassName();
@@ -126,7 +125,7 @@ classListProto.remove = function () {
 		, updated = false
 		, index
 	;
-	do {
+	while (++i <= l) {
 		token = tokens[i] + "";
 		index = checkTokenAndGetIndex(this, token);
 		while (~index) {
@@ -135,7 +134,6 @@ classListProto.remove = function () {
 			index = checkTokenAndGetIndex(this, token);
 		}
 	}
-	while (++i < l);
 
 	if (updated) {
 		this._updateClassName();

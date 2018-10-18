@@ -80,3 +80,18 @@ QUnit.test("Removes class with second argument", function(assert) {
 		"Returns false when class was not present"
 	);
 });
+
+QUnit.test("Adds no class with no argument", function(assert) {
+	var cList = document.createElement("p").classList;
+
+	cList.add();
+	assert.ok(!cList.contains("c1"), "Adds no class");
+});
+
+QUnit.test("Removes no class with no argument", function(assert) {
+	var cList = document.createElement("p").classList;
+
+	cList.add("c1");
+	cList.remove();
+	assert.ok(cList.contains("c1"), "Removes no class");
+});
